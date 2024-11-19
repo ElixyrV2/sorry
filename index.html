@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прости меня, Малика</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Базовые стили */
+        h3, p {
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #ffe6e6, #fff);
+            color: #444;
+            overflow-x: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            margin: 0 20px;
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 2rem;
+            color: #ff4d4d;
+        }
+        button {
+            background-color: #ff7f7f;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background-color: #ff4d4d;
+            transform: scale(1.05);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .fullscreen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 89vh;
+        }
+        .roadmap {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            animation: slideIn 0.5s ease forwards;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .step {
+            background: #fff;
+            padding: 20px 20px 10px 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .step img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .footer {
+            text-align: center;
+        }
+        .gif-container img {
+            max-width: 120px;
+            border-radius: 15px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .gif-container img:hover {
+            transform: scale(1.1);
+        }
+        /* Анимация приплывающего текста */
+        .floating {
+            position: relative;
+            animation: floatDown 2s ease forwards;
+        }
+        @keyframes floatDown {
+            from {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+        }
+        .modal-content button {
+            margin-top: 10px;
+            background: #ff7f7f;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Главная страница -->
+<div class="container fullscreen" id="main-page">
+    <h1>Прости меня, Любимая <3</h1>
+    <p>Я знаю, что иногда ошибаюсь, но я искренне хочу всё исправить. Пройди со мной путь любви и прощения 🥺</p>
+    <p>P.s: Обязательно включи звук</p>
+    <img src="https://media.tenor.com/9Te1NRPN8ysAAAAM/sad-sorry.gif" alt="Котик">
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="startJourney()">Пойти по дороге любви</button>
+    </div>
+</div>
+
+<!-- Роадмап любви -->
+<div class="container roadmap" id="roadmap">
+    <h2>Роадмап нашей любви</h2>
+    <div class="step">
+        <h3>Шаг 1: Слушать тебя</h3>
+        <p>Я обещаю быть внимательнее и слушать тебя сердцем ❤️</p>
+        <img src="https://www.theodysseyonline.com/media-library/image.gif?id=10544393&width=800&quality=80" alt="Котик">
+    </div>
+    <div class="step">
+        <h3>Шаг 2: Чаще радовать подарками</h3>
+        <p>Я понимаю что подарки это твой язык любви. Я понимаю что тебе важно получать любовь на твоем языке 🎁</p>
+        <img src="https://upgifs.com//img/gifs/MFOEBssUaigb6.gif" alt="Котик">
+    </div>
+    <div class="step">
+        <h3>Шаг 3: Учиться извиняться</h3>
+        <p>Иногда мне сложно просить прощения, но я готов извиняться перед тобою 🥺</p>
+        <img src="https://i.pinimg.com/originals/e3/cf/52/e3cf52e65fa5d1fd3be085f4ce37308e.gif" alt="Котик">
+    </div>
+    <div class="step">
+        <h3>Шаг 4: Внимание</h3>
+        <p>Ты говорила что в последнее время я уделяю тебе мало внимания, я постараюсь исправить это 👀</p>
+        <img src="https://media.tenor.com/KsSKpHMneGcAAAAM/dog-attention-seeker.gif" alt="Котик">
+    </div>
+    <p id="love-message" style="display: none; opacity: 0;">
+        Спасибо, что ты в моей жизни. Я люблю тебя, Малика ❤️
+    </p>
+    <button id="gift-button" style="display: none; opacity: 0;" onclick="revealGiftButton()">Нажми на меня</button>
+    <button id="finish-button" onclick="revealMessage()">Закончить путь</button>
+    <button onclick="goToMainPage()">Вернуться на главную</button>
+</div>
+
+<!-- Модальное окно -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <p>Пусть первым шагом моей работы над собой будет то, что уже едет к тебе, биб-bob ❤️</p>
+        <img src="https://i.gifer.com/origin/5a/5ad545f82734c4c024233503df9c4c67_w200.gif" alt="Котики целуются" style="width: 100%; border-radius: 10px;">
+        <button onclick="closeModal()">Закрыть</button>
+    </div>
+</div>
+
+<div class="footer">
+    <p>С любовью, твой Alti ❤️</p>
+</div>
+
+<!-- Музыка -->
+<audio autoplay loop>
+    <source src="resources/music.mp3" type="audio/mpeg">
+    Твой браузер не поддерживает аудио.
+</audio>
+
+<script>
+    function startJourney() {
+        document.getElementById('main-page').style.display = 'none';
+        document.getElementById('roadmap').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+
+    function goToMainPage() {
+        document.getElementById('roadmap').style.display = 'none';
+        document.getElementById('main-page').style.display = 'flex';
+    }
+
+    function revealGiftButton() {
+        const giftButton = document.getElementById('gift-button');
+        giftButton.style.display = 'block'; // Делаем кнопку видимой
+        giftButton.style.animation = 'slideDown 2s ease forwards'; // Анимация спуска
+
+        // Добавляем обработчик клика
+        giftButton.addEventListener('click', () => {
+            document.getElementById('modal').style.display = 'flex';
+        });
+    }
+
+    function revealLoveMessage() {
+        const loveMessage = document.getElementById('love-message');
+        loveMessage.style.display = 'block';
+        setTimeout(() => {
+            loveMessage.style.transition = 'opacity 2s';
+            loveMessage.style.opacity = '1';
+        }, 100); // Небольшая задержка для активации transition
+        revealLoveMessage2()
+    }
+
+    function revealLoveMessage2() {
+        const loveMessage2 = document.getElementById('gift-button');
+        loveMessage2.style.display = 'block';
+        setTimeout(() => {
+            loveMessage2.style.transition = 'opacity 2s';
+            loveMessage2.style.opacity = '1';
+        }, 100); // Небольшая задержка для активации transition
+        deleteFinishButton()
+    }
+
+    function deleteFinishButton() {
+        const finishButton = document.getElementById('finish-button');
+        finishButton.style.display = "none"
+    }
+
+    // Вызываем функцию, как только путь завершён
+    document.getElementById('finish-button').addEventListener('click', revealLoveMessage);
+</script>
+</body>
+</html>
